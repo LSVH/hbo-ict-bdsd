@@ -16,5 +16,5 @@ The following applications are build on top of Hadoop MapReduce and written in J
   
 - Application implementing the HITS algorithm.  
   Available at:  
-  [`src/main/java/org/lsvh/hu/bdsd/hits`](src/main/java/org/lsvh/hu/bdsd/pagerank)
+  [`src/main/java/org/lsvh/hu/bdsd/hits`](src/main/java/org/lsvh/hu/bdsd/hits)
   
