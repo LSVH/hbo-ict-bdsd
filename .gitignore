@@ -1,0 +1,10 @@
+# Maven
+target
+
+# Hadoop out
+_SUCCESS
+*.crc
+
+# IDE
+*iml
+.idea
