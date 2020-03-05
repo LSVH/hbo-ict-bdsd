@@ -5,10 +5,12 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.*;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.JobStatus;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
 public abstract class JobContract {
+    private static final Logger log = Logger.getLogger(JobContract.class);
     protected Job job = null;
 
     public JobContract(Path in, Path out) {
@@ -20,7 +22,7 @@ public abstract class JobContract {
             job.setOutputKeyClass(Text.class);
             job.setOutputValueClass(Text.class);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e);
         }
     }
 
@@ -31,13 +33,10 @@ public abstract class JobContract {
             } else  if (job == null) {
                 throw new IOException("Job is not defined");
             } else {
-                System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
-                System.out.println("-=-=-=-=-=-=-=-=-=-     RUNNING JOB     -=-=-=-=-=-=-=-=-=-=-");
-                System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
                 job.waitForCompletion(true);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e);
         }
     }
 
