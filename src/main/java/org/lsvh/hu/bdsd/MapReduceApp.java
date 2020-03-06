@@ -28,6 +28,10 @@ public abstract class MapReduceApp {
     protected MapReduceApp() {
     }
 
+    protected static void appendToOutputPath(String suf) {
+        out = out + File.separator + removeTrailingSlash(suf);
+    }
+
     protected static void setupLogging() {
         org.apache.log4j.BasicConfigurator.configure();
         Logger.getRootLogger().setLevel(Level.ERROR);
@@ -43,8 +47,8 @@ public abstract class MapReduceApp {
 
         try {
             CommandLine line = parser.parse(options, args);
-            in = (line.hasOption(OPT_IN) ? line.getOptionValue(OPT_IN) : INPUT_PATH).replaceAll("[/\\\\]$", "");
-            out = (line.hasOption(OPT_OUT) ? line.getOptionValue(OPT_OUT) : OUTPUT_PATH).replaceAll("[/\\\\]$", "");
+            in = removeTrailingSlash(line.hasOption(OPT_IN) ? line.getOptionValue(OPT_IN) : INPUT_PATH);
+            out = removeTrailingSlash(line.hasOption(OPT_OUT) ? line.getOptionValue(OPT_OUT) : OUTPUT_PATH);
             its = line.hasOption(OPT_ITS) ? Integer.parseInt(line.getOptionValue(OPT_ITS)) : JOB_ITERATIONS;
         } catch (Exception e) {
             log.error(e);
@@ -60,5 +64,9 @@ public abstract class MapReduceApp {
                 log.error(e);
             }
         }
+    }
+
+    private static String removeTrailingSlash(String path) {
+        return path.replaceAll("[/\\\\]$", "");
     }
 }

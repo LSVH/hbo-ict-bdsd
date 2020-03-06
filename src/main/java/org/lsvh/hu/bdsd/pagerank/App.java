@@ -17,6 +17,7 @@ public class App extends MapReduceApp {
     public static void main(String[] args) {
         setupLogging();
         setupCLI(args);
+        appendToOutputPath("pageRank");
         setupIO();
         setupJobs();
     }
