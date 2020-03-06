@@ -1,7 +1,5 @@
 package org.lsvh.hu.bdsd.models;
 
-import org.lsvh.hu.bdsd.pagerank.jobs.JobContract;
-
 public class JobThread extends Thread {
     private JobContract job;
     private Thread next;

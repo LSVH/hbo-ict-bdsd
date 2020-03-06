@@ -1,4 +1,4 @@
-package org.lsvh.hu.bdsd.pagerank.models;
+package org.lsvh.hu.bdsd.pagerank;
 
 import java.util.ArrayList;
 import java.util.List;

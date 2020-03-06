@@ -4,7 +4,8 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
-import org.lsvh.hu.bdsd.pagerank.models.Node;
+import org.lsvh.hu.bdsd.models.JobContract;
+import org.lsvh.hu.bdsd.pagerank.Node;
 
 import java.io.IOException;
 import java.util.ArrayList;

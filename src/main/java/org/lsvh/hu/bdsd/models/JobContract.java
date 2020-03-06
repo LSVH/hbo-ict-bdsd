@@ -1,4 +1,4 @@
-package org.lsvh.hu.bdsd.pagerank.jobs;
+package org.lsvh.hu.bdsd.models;
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
